@@ -527,7 +527,7 @@ pdk_packages/spx_restservice-3.25.0.9.0-src/data/lighttpd.conf
 
 
 
-Horsea-ali 开机函数
+Horsea-a 开机函数
 iec_power_on();
 
 
@@ -609,7 +609,7 @@ i2c-test -b 13 -s 0x10 -m 1 -rc 1 -d  0x00  
 
 
 
-auditlog：（horse-ali code）
+auditlog：（horse-a code）
 在iec_auditlog.c中添加数组信息。
 在OEM_RecordAuditLog 截取msghand中的指令
 
