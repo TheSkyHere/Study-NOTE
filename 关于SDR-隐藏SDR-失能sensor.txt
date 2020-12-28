@@ -1,0 +1,22 @@
+/* Event Flags description           */
+/* Bit 0 -  Initialization Done      */
+/* Bit 1 -  Update in Progress       */
+/* Bit 2 -  reserved                 */
+/* Bit 3 -  reserved                 */
+/* Bit 4 -  reserved                 */
+/* Bit 5 -  Unable to read           */
+/* Bit 6 -  Sensor Scanning disabled */
+/* Bit 7 -  Event Message Disabled   */
+//disble BIT6 BIT7  this sensor will not scan and not read
+pSenSharedMem->SensorInfo [BMC0_1S_DIS_SENSOR[Num]].EventFlags &= ~(BIT6|BIT7);//Significant bit is 0
+
+
+//modify this SDR type 
+pSenSharedMem->SensorInfo [BMC0_1S_DIS_SENSOR[Num]].SDRRec->Type = 0xC0; //OME SDR 
+
+
+SDR.type=0x03 // Event-Only Sensor Record - SDR Type 03h
+
+
+int InitSensorScanningBit(int BMCInst) //at this function add something
+

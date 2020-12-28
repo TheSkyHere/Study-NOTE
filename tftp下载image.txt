@@ -1,0 +1,95 @@
+note：需要搭建tftp服务端（自行搭建，不提供步骤）
+
+
+步骤1
+AST2500EVB>setenv ethact ast_eth1  //设置BMC网口
+AST2500EVB>saveenv
+
+步骤2
+AST2500EVB>dhcp   //从DHCP server 获取IP
+BOOTP broadcast 1
+DHCP client bound to address 192.168.0.12
+
+步骤3
+AST2500EVB>ping 192.168.0.28 //是否能ping通tftp服务端IP
+Using ast_eth0 device
+host 192.168.0.28 is alive
+
+步骤4
+AST2500EVB>setenv serverip 192.168.0.28  //设置tftp服务端IP
+AST2500EVB>saveenv
+
+步骤5
+AST2500EVB>print  //查看相关设置是否成功
+autoload=no
+baudrate=0x1c200
+bmcresetevent=yes
+bootcmd=bootfmh
+bootdelay=0
+bootselector=1
+dnsip=192.168.0.1
+ethact=ast_eth0
+ethaddr=38:68:DD:33:7C:D0
+gatewayip=192.168.0.1
+ipaddr=192.168.0.12
+loads_echo=1
+memtest_pass=idle
+netmask=255.255.255.0
+recentlyprogfw=1
+serverip=192.168.0.28 //此处是tftp服务端IP
+stderr=serial
+stdin=serial
+stdout=serial
+verify=n
+
+步骤6
+AST2500EVB>tftp rom.ima    //从tftp服务端 下载对应的image到内存，rom.ima要替换成tftp服务器上存放的image的真实名称
+//或者：AST2500EVB>tftp rom.ima  0x20000000    //从tftp服务端 下载对应的image到内存，rom.ima要替换成tftp服务器上存放的image的真实名称
+Using ast_eth0 device
+TFTP from server 192.168.0.28; our IP address is 192.168.0.12
+Filename 'rom.ima'.
+Load address: 0x80100000
+Loading: #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+		 .
+		 .
+		 .
+		 .
+		 #######################################################
+         128 MiB
+done
+Bytes transferred = 134217728 (8000000 hex)
+
+步骤7
+AST2500EVB>protect off all  //移除flash保护
+Un-Protect Flash Bank # 1
+
+步骤8
+AST2500EVB>erase all        //如果以上步骤出现任何问题，不要执行此命令。此命令擦除所有flash包括uboot
+Erase Flash Bank # 1 
+Erasing sector  0 ... ok.
+Erasing sector  1 ... ok.
+Erasing sector  2 ... ok.
+Erasing sector  3 ... ok.
+.
+.
+.
+Erasing sector 2046 ... ok.
+Erasing sector 2047 ... ok.
+Erase Flash Bank # 2 Erase Flash Bank # 3 Erase Flash Bank # 4 Erase Flash Bank # 5 AST2500EVB>
+
+步骤9
+AST2500EVB>cp.b 0x20000000 0x80100000 0x8000000  //烧写到flash
+
+AST2500EVB>cp.b 0x80100000 0x20000000 0x8000000  //烧写到flash
+
+
+步骤10
+
+
+
+

@@ -1,0 +1,31 @@
+朱文通: PrimaryIPMBCh SecondaryIPMBCh ThirdIPMBCh
+朱文通: API_BridgeInternal_Retry
+朱文通: API_BridgeInternal
+朱文通: API_BridgeInternal_Seqnum
+
+ipmitool -U admin -P admin -H 192.168.0.27 -b 10 -t 0x24 raw 6 1 
+ipmitool -U admin -P admin -H 192.168.0.26 -b 10 -t 0x22 raw 6 1 
+
+
+
+Author: zhu.wen-tong <zhu.wen-tong@inventec.com.cn>
+Date:   Wed Jul 29 11:53:41 2020 +0800
+
+    1 implement PDK_GetNodeID(); 2 config Third IPMB Addr 0x22 for BMC 0, 0x24 for BMC 1;
+    
+    Change-Id: I1661fea29dc76137e55dcc9f586f67d01ed31856
+
+
+
+
+
+return Send_RAW_IPMI2_0_IPMB_Command(pSession,
+LIBIPMI_Send_RAW_IPMI2_0_Command
+
+LIBIPMI_Send_RAW_IPMI2_0_Command
+
+Create_IPMI20_IPMB_Session
+Send_RAW_IPMI2_0_IPMB_Command
+
+free(data);
+m_session[i].sess_ipmi_res = malloc(sizeof(ipmi_res_data)*MAX_IPMI_COMMAND_LIMIT);

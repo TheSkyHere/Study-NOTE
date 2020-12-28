@@ -1,0 +1,79 @@
+关于uboot的设置
+
+
+关闭看门狗的指令
+AST2500EVB>md 1e785030 1
+1e785030: 00000102 ....
+AST2500EVB>mw 1e785034 77
+AST2500EVB>md 1e785030 1
+1e785030: 00000000 
+简单测试没有成功
+    
+
+
+需要在uboot模式下发送的8条指令（自己的ip）
+
+//大网段使用
+setenv Load address 0x81000000         
+setenv serverip 10.99.100.26
+         
+setenv bootfile uImage
+setenv ipaddr 10.99.100.3   
+                               
+setenv bootdelay 3
+setenv bootargs root=/dev/nfs rw nfsroot=10.99.100.26:/var/lib/tftpboot/BMC1/ImageTree console=ttyS4,115200 ip=dhcp bigphysarea=6144     
+
+setenv bootcmd 'tftpboot 81000000 10.99.100.26:/BMC1/uImage; bootm'
+saveenv
+
+查看flash是否保存下相关数据的指令
+printenv
+
+//小网段使用
+setenv Load address 0x81000000         
+setenv serverip 192.168.0.28
+         
+setenv bootfile uImage
+setenv ipaddr 192.168.0.3   
+                               
+setenv bootdelay 3
+setenv bootargs root=/dev/nfs rw nfsroot=192.168.0.28:/var/lib/tftpboot/BMC1/ImageTree console=ttyS4,115200 ip=dhcp bigphysarea=6144     
+
+setenv bootcmd 'tftpboot 81000000 192.168.0.28:/BMC1/uImage; bootm'
+saveenv
+
+查看flash是否保存下相关数据的指令
+printenv
+
+
+
+8条指令讲解
+<1>设置 下载的目标内存地址 
+<2>设置tftp/nfs server  ip，即ubuntu16.04的ip
+<3>设置下载的image文件名为uImage
+<4>为uboot 设置一个同网段的ip
+<5>设置一个bootdelay 秒数。（可以设置为0）
+<6>设置nfs 挂载路径等参数
+<7>设置bootcmd 为tftp下载并起动的方式. 注意：加单引号
+<8> 保存设置的参数：saveenv
+
+重新从flash启动
+bootfmh
+
+
+BMC 带内登录用户sysadmin密码superuser
+
+
+change default user to root from ADMIN
+
+
+
+http://10.99.100.103/baidu/kvm
+
+
+
+
+
+
+
+
