@@ -433,6 +433,9 @@ Yafuflash -nw -ip 192.168.0.5 -u toutiao -p toutiao!@# -d 1 /home/morton/SVN_pro
 
 
 
+//socflash 升级BMC指令
+./socflash_x64 if=./BMC1.03/athenaG2BMC103.ima  option=g rstflash=mxic
+
 
 grep的使用：
 grep  "192.168.1" Horsea-a-MOC-N01-minicom.cap -c （-c只显示数量）
@@ -449,8 +452,32 @@ Ipmitool raw 0x0c 0x1 8 210    0xxx（interface data1） 0x01（0h – Change Au
 
 
 
+关于sol功能 切串口的函数
+PDK_SwitchEMPMux（）
 
 
 查看CPU使用率：
 top -H -p pid命令查看进程内各个线程占用的CPU百分比
 ps H -eo pid,tid,%cpu,%mem,comm --sort=%cpu
+
+
+
+celeastica:
+使用HPM升级BMC
+ipmitool hpm check
+ipmitool hpm upgrade rom.hpm
+ipmitool hpm upgrade -z 0x7fff rom.hpm
+
+切BMC的串口
+shift +456 ，然后2 是BMC   0、1、3是其他
+
+
+
+
+
+打开和关闭PDU  athenaG1 
+apc>olOff 1
+E000: Success
+
+apc>olOn 1 
+E000: Success

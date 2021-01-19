@@ -1,0 +1,28 @@
+1.首先需要变异生成的可执行文件需要使用-g指令：
+gcc -g test.c -o test.exe
+2.启动gdb
+gdb test.exe 或则 首先gdb 然后进入后使用file test.exe
+3.设置断点
+break main
+4.运行
+run（r）
+5.单步运行（not in subfunction ）
+next（n）
+6.单步运行（in subfunction）
+step（s）
+6.继续运行
+continue （c）
+gdb 命令
+list（l）				：查看程序
+break（b）函数名 		：在函数处添加断点
+break（b）行号		：在指定行添加断点
+break（b） 文件名:行号  ：在指定文件指定行添加断点
+break（b）行号if条件 	：当条件成立的时候断点生效例如：break 5 if i=5 
+设置函数的入参：set args abc 123 设置两个入参
+info break :View break
+delete：delete break
+run：run function
+print（p）：view（print） variable
+finish：run until function over
+watch：监控variable 每当variable变化的时候窗口会有输出
+quit（q）：退出 

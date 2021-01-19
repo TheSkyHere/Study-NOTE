@@ -2,7 +2,6 @@ ipmitool -H 10.99.100.16 -U ADMIN -P ADMIN user list
 查看用户
 
 ipmitool -H 10.99.100.16 -U ADMIN -P ADMIN user set name 3 XXX
-
 ipmitool -H 10.99.100.16 -U ADMIN -P ADMIN raw 6 2  （BMC reset 和reboot） 
 
 
