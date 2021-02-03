@@ -441,6 +441,9 @@ grep的使用：
 grep  "192.168.1" Horsea-a-MOC-N01-minicom.cap -c （-c只显示数量）
 
 
+从远端机器下载文件：(XXX.bin文件必须要192.168.0.1 server上的共享目录下)
+tftp -g -r XXXX.bin 192.168.0.1
+
 
 先执行获取名利
 Ipmitool raw 0x0c 0x2 8 210
@@ -481,3 +484,9 @@ E000: Success
 
 apc>olOn 1 
 E000: Success
+
+AthenaG2 和SES 通信
+Set LED status:
+ipmitool  -U admin -P admin -t 0x2a -b 0xa raw 0x3a 0xa5 (subtype code)0x00 (subtype index)0x00 (status)0x00
+Set FAN:
+ipmitool  -U admin -P admin -t 0x2a -b 0xa raw 0x3a 0x36 (mode)0x00 (pwm)0x00

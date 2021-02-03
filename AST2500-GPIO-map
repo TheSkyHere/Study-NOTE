@@ -1,0 +1,690 @@
+/**************************************************************************
+ **************************************************************************
+ ***                                                                     **
+ ***        (c)Copyright 2018 Celestica Inc.，                            **
+ ***                                                                     **
+ ***            All Rights Reserved.                                     **
+ ***                                                                     **
+ ***  Section A701, Building 1, Zhang Jiang River Front Harbor           **
+ ***                                                                     **
+ ***      3000 Long dong Ave. Shanghai. 201203, P.R.C                    **
+ ***                                                                     **
+ **************************************************************************
+ **************************************************************************
+ *************************************************************************/
+
+/*
+ *      CLSGPIOSensorDefs.h
+ *
+ *      Created on: May 29, 2019
+ *      Author: HenryWu@celestica.com
+ *      CLSAthenaGpioSensorDefs.h
+ *      Define Celestica OEM sensor, gpio macro define etc.Porting notice: porting some macros from pdkwhhw.h.
+ */
+
+#ifndef GPIOSENDEF_H_
+#define GPIOSENDEF_H_
+
+/** The below defined sensor numbers for AthenaG2
+  */
+#define NA                               0xff
+/*Caution: NM sensors area 1-35, sensor monitor will skip these sensors!!!
+*/
+#define SENSOR_NUMBER_PCH_TEMP           1
+#define SENSOR_NUMBER_CPU0_TEMP          2
+#define SENSOR_NUMBER_CPU1_TEMP          3
+// DIMMs begin always keep this sensor Number continiously 
+#define SENSOR_NUMBER_CPU0_DIMMA0_TEMP   4
+#define SENSOR_NUMBER_CPU0_DIMMA1_TEMP   5
+#define SENSOR_NUMBER_CPU0_DIMMB0_TEMP   6
+#define SENSOR_NUMBER_CPU0_DIMMB1_TEMP   7     // NA
+#define SENSOR_NUMBER_CPU0_DIMMC0_TEMP   8
+#define SENSOR_NUMBER_CPU0_DIMMC1_TEMP   9     // NA
+#define SENSOR_NUMBER_CPU0_DIMMD0_TEMP   10
+#define SENSOR_NUMBER_CPU0_DIMMD1_TEMP   11    // NA
+#define SENSOR_NUMBER_CPU0_DIMME0_TEMP   12
+#define SENSOR_NUMBER_CPU0_DIMME1_TEMP   13    // NA
+#define SENSOR_NUMBER_CPU0_DIMMF0_TEMP   14
+#define SENSOR_NUMBER_CPU0_DIMMF1_TEMP   15    // NA
+#define SENSOR_NUMBER_CPU0_DIMMG0_TEMP   16
+#define SENSOR_NUMBER_CPU0_DIMMG1_TEMP   17    // NA
+#define SENSOR_NUMBER_CPU0_DIMMH0_TEMP   18
+#define SENSOR_NUMBER_CPU0_DIMMH1_TEMP   19    // NA
+
+#define SENSOR_NUMBER_CPU1_DIMMA0_TEMP   20
+#define SENSOR_NUMBER_CPU1_DIMMA1_TEMP   21
+#define SENSOR_NUMBER_CPU1_DIMMB0_TEMP   22
+#define SENSOR_NUMBER_CPU1_DIMMB1_TEMP   23   //    NA
+#define SENSOR_NUMBER_CPU1_DIMMC0_TEMP   24
+#define SENSOR_NUMBER_CPU1_DIMMC1_TEMP   25  //    NA
+#define SENSOR_NUMBER_CPU1_DIMMD0_TEMP   26  
+#define SENSOR_NUMBER_CPU1_DIMMD1_TEMP   27  //   NA
+#define SENSOR_NUMBER_CPU1_DIMME0_TEMP   28
+#define SENSOR_NUMBER_CPU1_DIMME1_TEMP   29  //    NA
+#define SENSOR_NUMBER_CPU1_DIMMF0_TEMP   30
+#define SENSOR_NUMBER_CPU1_DIMMF1_TEMP   31  //    NA
+#define SENSOR_NUMBER_CPU1_DIMMG0_TEMP   32
+#define SENSOR_NUMBER_CPU1_DIMMG1_TEMP   33  //    NA
+#define SENSOR_NUMBER_CPU1_DIMMH0_TEMP   34
+#define SENSOR_NUMBER_CPU1_DIMMH1_TEMP   35  //    NA
+#define SENSOR_NUMBER_TJMAX0             36
+#define SENSOR_NUMBER_TJMAX1             37
+
+
+
+// DIMMs end
+// Define a macro for sensors whose reading is comming from SES controller
+#define OEM_SENSOR_OWNER_SES             0x55
+// Define a macro for sensors whose reading is comming from IntelME
+#define OEM_SENSOR_OWNER_NM              0x66
+// Define a macro for sensors whose reading is comming from HAL:default
+#define OEM_SENSOR_OWNER_HAL             0x00
+
+
+#define SENSOR_NUMBER_INLET_TEMP         40
+#define SENSOR_NUMBER_OUTLET_TEMP        41
+#define SENSOR_NUMBER_PCIE0_TEMP         42
+#define SENSOR_NUMBER_PCIE1_TEMP         43
+#define SENSOR_NUMBER_PCIE2_TEMP         44
+#define SENSOR_NUMBER_PSX_TEMP           45
+#define SENSOR_NUMBER_FRONT_PANEL_TEMP   46
+#define SENSOR_NUMBER_PSU0_TEMP          47
+#define SENSOR_NUMBER_PSU1_TEMP          48
+
+
+#define SENSOR_NUMBER_DRIVE0_TEMP        50
+#define SENSOR_NUMBER_DRIVE1_TEMP        51
+#define SENSOR_NUMBER_DRIVE2_TEMP        52
+#define SENSOR_NUMBER_DRIVE3_TEMP        53
+#define SENSOR_NUMBER_DRIVE4_TEMP        54
+#define SENSOR_NUMBER_DRIVE5_TEMP        55
+#define SENSOR_NUMBER_DRIVE6_TEMP        56
+#define SENSOR_NUMBER_DRIVE7_TEMP        57
+#define SENSOR_NUMBER_DRIVE8_TEMP        58
+#define SENSOR_NUMBER_DRIVE9_TEMP        59
+#define SENSOR_NUMBER_DRIVE10_TEMP       60
+#define SENSOR_NUMBER_DRIVE11_TEMP       61
+#define SENSOR_NUMBER_DRIVE12_TEMP       62
+#define SENSOR_NUMBER_DRIVE13_TEMP       63
+#define SENSOR_NUMBER_DRIVE14_TEMP       64
+#define SENSOR_NUMBER_DRIVE15_TEMP       65
+#define SENSOR_NUMBER_DRIVE16_TEMP       66
+#define SENSOR_NUMBER_DRIVE17_TEMP       67
+#define SENSOR_NUMBER_DRIVE18_TEMP       68
+#define SENSOR_NUMBER_DRIVE19_TEMP       69
+#define SENSOR_NUMBER_DRIVE20_TEMP       70
+#define SENSOR_NUMBER_DRIVE21_TEMP       71
+#define SENSOR_NUMBER_DRIVE22_TEMP       72
+#define SENSOR_NUMBER_DRIVE23_TEMP       73
+
+#define SENSOR_NUMBER_VOLT_3V3            80
+#define SENSOR_NUMBER_VOLT_3V3_PCH        81
+#define SENSOR_NUMBER_VOLT_RTC            82
+#define SENSOR_NUMBER_VOLT_PVCCIO_CPU0    83
+#define SENSOR_NUMBER_VOLT_PVDDQ_CPU0_ABC 84
+#define SENSOR_NUMBER_VOLT_PVDDQ_CPU0_DEF 85
+#define SENSOR_NUMBER_VOLT_PVDDQ_CPU1_GHJ 86
+#define SENSOR_NUMBER_VOLT_PVDDQ_CPU1_KLM 87
+#define SENSOR_NUMBER_VOLT_PVCCIN_CPU0    88
+#define SENSOR_NUMBER_VOLT_PVCCIN_CPU1    89
+#define SENSOR_NUMBER_VOLT_PVCCSA_CPU0    90
+#define SENSOR_NUMBER_VOLT_PVCCSA_CPU1    91
+#define SENSOR_NUMBER_VOLT_PCH_1V05       92
+#define SENSOR_NUMBER_VOLT_PCH_1V8        93
+#define SENSOR_NUMBER_VOLT_PVNN           94
+#define SENSOR_NUMBER_VOLT_2V1            95
+#define SENSOR_NUMBER_VOLT_BAT            96
+#define SENSOR_NUMBER_VOLT_F              97
+#define SENSOR_NUMBER_VOLT_PVCCIO_CPU1    98
+//#define SENSOR_NUMBER_VOLT_MF_SENSE  
+
+#define SENSOR_NUMBER_FAN_TACH0           100
+#define SENSOR_NUMBER_FAN_TACH1           101
+#define SENSOR_NUMBER_FAN_TACH2           102
+#define SENSOR_NUMBER_FAN_TACH3           103
+#define SENSOR_NUMBER_FAN_TACH4           104
+#define SENSOR_NUMBER_FAN_TACH5           105
+#define SENSOR_NUMBER_FAN_TACH6           106
+#define SENSOR_NUMBER_FAN_TACH7           107
+#define SENSOR_NUMBER_FAN_TACH8           108
+#define SENSOR_NUMBER_FAN_TACH9           109
+
+#define SENSOR_NUMBER_PSU0_FAN0           110
+#define SENSOR_NUMBER_PSU0_FAN1           111
+#define SENSOR_NUMBER_PSU1_FAN0           112
+#define SENSOR_NUMBER_PSU1_FAN1           113
+
+#define SENSOR_NUMBER_PSU0_PWR            114//0x72
+#define SENSOR_NUMBER_PSU1_PWR            115//0x73
+
+#define SENSOR_NUMBER_FAN0_STATUS         120//0x78
+#define SENSOR_NUMBER_FAN1_STATUS         121
+#define SENSOR_NUMBER_FAN2_STATUS         122
+#define SENSOR_NUMBER_FAN3_STATUS         123
+#define SENSOR_NUMBER_FAN4_STATUS         124
+#define SENSOR_NUMBER_FAN5_STATUS         125
+#define SENSOR_NUMBER_FAN6_STATUS         126
+#define SENSOR_NUMBER_FAN7_STATUS         127
+#define SENSOR_NUMBER_FAN8_STATUS         128
+#define SENSOR_NUMBER_FAN9_STATUS         129//0x81
+
+
+#define SENSOR_NUMBER_SEL_STATUS          130
+#define SENSOR_NUMBER_QPI_STATUS          131//0X83
+#define SENSOR_NUMBER_CORE_STATUS         132
+#define SENSOR_NUMBER_SYSFW_PROGRESS      133
+#define SENSOR_NUMBER_CB0_STATUS          134
+#define SENSOR_NUMBER_DIMM_STATUS         135
+#define SENSOR_NUMBER_PCIE_STATUS         136
+#define SENSOR_NUMBER_PEF_ACTION          137
+#define SENSOR_NUMBER_BMC_FIRMWARE        138
+#define SENSOR_NUMBER_WATCHDOG2           139//8b
+#define SENSOR_NUMBER_ACPI_PWR_STATE      140
+#define SENSOR_NUMBER_CPU0_PRESENT        141
+#define SENSOR_NUMBER_CPU1_PRESENT        142//0x8e
+#define SENSOR_NUMBER_PSU0_STATUS         143
+#define SENSOR_NUMBER_PSU1_STATUS         144
+#define SENSOR_NUMBER_CPU_STATUS          145//0x91
+#define SENSOR_NUMBER_BBU_PRESENT         146//0x92
+
+#define SENSOR_NUMBER_BIOS_FIRMWARE		  147	//For Golden BIOS	
+
+#define IO_BMC_PHY_INT_R_N                        1     //GPIOA1
+#define IO_IRQ_BMC_PCH_SMI_LPC_R_N                13    //GPIOB5   
+#define IO_PU_BMC_LPC_PME_N                       14    //GPIOB6
+#define IO_IRQ_SMI_ACTIVE_R_N                     15    //GPIOB7   
+#define IO_PWRBTN_BMC_CPLD_N                      16    //GPIOC0
+#define IO_RST_PLTRST_B_N                         17    //GPIOC1
+#define IO_PWRGD_CPU0_LVC3                        18    //GPIOC2  
+#define IO_PWRGD_CPU1_LVC3                        19    //GPIOC3  
+#define IO_SLOT_ID0_BMC                           6     //GPIOA6 //AthenaG2 SLOT_ID0_BMC
+#define IO_SLOT_ID1_BMC                           63    //GPIOH7 //AthenaG2 SLOT_ID1_BMC
+#define IO_PWRGD_CPUPWRGD_LVT3                    23    //GPIOC7
+#define IO_BMC_GPIO_SPI_SW                        137   //GPIOR1 // common name AthenaG2 FM_BIOS_SPI_SW
+
+#define IO_RST_PLTRST_TO_BMC_N                    32    //GPIOE0
+#define IO_BMC_PWRBTN_L                           194   //GPIOY2 //AthenaG2 BMC_PWR_BTN_OUT_N
+#define IO_PWRGD_PCH_PWROK                        41    //GPIOF1
+#define IO_RST_RSMRST_N                           42    //GPIOF2
+#define IO_PWRGD_SYS_PWROK                        202   //GPIOZ2 //AthenaG2 PWRGD_SYS_PWROK
+#define IO_FM_BIOS_POST_CMPLT                     45    //GPIOF5
+#define IO_BMC_HEARTBEAT_TO_CPLD                  47    //GPIOF7
+
+#define IO_FM_PVCCIN_CPU1_PWR_IN_ALERT_N          49    //GPIOG1
+#define IO_FM_PVCCIN_CPU0_PWR_IN_ALERT_N          50    //GPIOG2
+#define IO_IRQ_NMI_EVENT_N                        52    //GPIOG4
+#define IO_RSV_PCH_BMC_GPIO                       54    //GPIOG6 //BIOS Debug switch
+#define IO_SPI_BMC_FLASH0_WP_N                    56    //GPIOH0
+#define IO_SPI_BMC_FLASH0_HOLD_N                  57    //GPIOH1
+#define IO_SPI_BMC_FLASH1_WP_N                    58    //GPIOH2
+#define IO_SPI_BMC_FLASH1_HOLD_N                  59    //GPIOH3
+#define IO_CPU_ERR0_LVT3_L                        60    //GPIOH4
+#define IO_CPU_ERR1_LVT3_L                        61    //GPIOH5
+#define IO_CPU_ERR2_LVT3_L                        62    //GPIOH6
+//#define IO_IRQ_SML0_ALERT_BMC_N                   63    //GPIOH7
+#define IO_IRQ_PVCCIN_CPU0_VRHOT_LVC3_N           96    //GPIOM0
+#define IO_IRQ_PVCCIN_CPU1_VRHOT_LVC3_N           97    //GPIOM1
+#define IO_CPU0_FIVR_FAULT_TTL                    98    //GPIOM2
+#define IO_CPU1_FIVR_FAULT_TTL                    99    //GPIOM3
+#define IO_FRU_WP_N                               100   //GPIOM4
+#define IO_EN_CPLD_JTAG_BMC                       74    //GPIOJ2 //AthenaG2 EN_BMC_CPLD_JTAG_L
+
+#define IO_PS1_PRES_L                             112   //GPIOO0
+#define IO_PS2_PRES_L                             113   //GPIOO1
+#define IO_PSU1_DC_PWROK                          114   //GPIOO2
+#define IO_PSU_AC_GOOD_L                          115   //GPIOO3
+#define IO_PS1_ALERT_L                            116   //GPIOO4
+#define IO_PS2_ALERT_L                            117   //GPIOO5
+#define IO_PSU2_DC_PWROK                          118   //GPIOO6
+#define IO_RMT_BMC_HB_LED_L                       122   //GPIOP2
+#define IO_BMC_HB_GEN                             67    //GPIOI3 //AthenaG2 BMC_PEER_GPIO1 gen heart beat
+#define IO_BMC_HB_GET                             144   //GPIOS0 //AthenaG2 BMC_PEER_GPIO2 heart beat read
+#define IO_CPU0_THERMTRIP_CPLD_L                  126   //GPIOP6
+#define IO_CPU1_THERMTRIP_CPLD_L                  127   //GPIOP7
+#define IO_BMC_SPI_CS1_N                          136   //GPIOR0
+#define IO_BMC_SPI_CS2_N                          137   //GPIOR1
+#define IO_CPU0_SKTOCC_N                          140   //GPIOR4//there is no connection in AthenaG2
+#define IO_CPU1_SKTOCC_N                          141   //GPIOR5//there is no connection in AthenaG2
+#define IO_BMC_BOOT_OK                            145   //GPIOS1
+#define IO_CPU0_PROCHOT_TTL_L                     146   //GPIOS2
+#define IO_CPU1_PROCHOT_TTL_L                     147   //GPIOS3
+
+#define IO_PU_BMC_GPIO_S4                         148   //GPIOS4
+#define IO_PU_BMC_GPIO_S5                         149   //GPIOS5
+#define IO_PU_BMC_GPIO_S6                         150   //GPIOS6
+#define IO_PU_BMC_GPIO_S7                         151   //GPIOS7
+#define IO_PCH_SLP_S3_N                           192   //GPIOY0
+#define IO_PCH_SLP_S5_N                           193   //GPIOY1
+#define IO_PU_BMC_GPIO_Y3                         195   //GPIOY3
+#define IO_INT_CPLD_BMC_L                         200   //GPIOZ0
+#define IO_FM_BMC_PCH_SCI_LPC_N                   203   //GPIOZ3
+#define IO_PU_BMC_GPIO_Z4                         204   //GPIOZ4
+#define IO_PU_BMC_GPIO_Z5                         205   //GPIOZ5
+#define IO_PU_BMC_GPIO_Z6                         206   //GPIOZ6
+#define IO_PU_BMC_GPIO_Z7                         207   //GPIOZ7
+#define IO_CPU0_MEMABC_MEMHOT_TTL_L               208   //GPIOAA0
+#define IO_CPU0_MEMDEF_MEMHOT_TTL_L               209   //GPIOAA1
+#define IO_CPU0_MEMGHJ_MEMHOT_TTL_L               210   //GPIOAA2
+#define IO_CPU0_MEMKLM_MEMHOT_TTL_L               211   //GPIOAA3
+#define IO_FM_PCH_BMC_THERMTRIP_N                 212   //GPIOAA4
+#define IO_FM_CPU1_DISABLE_COD_BMC_N              213   //GPIOAA5
+#define IO_IRQ_BMC_PCH_NMI                        214   //GPIOAA6
+#define IO_CPU_MSMI_CATERR_LVT3_N                 215   //GPIOAA7
+#define IO_CPU0_THERMTRIP_TO_BMC_L                216   //GPIOAB0
+#define IO_CPU1_THERMTRIP_TO_BMC_L                217   //GPIOAB1
+#define IO_CPU0_MEM_THERM_EVENT_LVT3_N            218   //GPIOAB2
+#define IO_CPU1_MEM_THERM_EVENT_LVT3_N            219   //GPIOAB3
+#define IO_PSU0_PRESENT_L                         216   //GPIOAB0  PSU0_PRE AthenaG2
+#define IO_PSU1_PRESENT_L                         217   //GPIOAB1  PSU1_PRE AthenaG2
+#define IO_FP_ERROR_LED_L                         209   //Reserve for future fault led at front pannel                         
+
+//for CPLD update
+#define IO_CPLD_Before_Pin                        144    //GPIOS0
+#define IO_CPLD_After_Pin                         145    //GPIOS1
+
+
+
+/* I2C BUS Number     */
+#define I2C_BUS0               0 //BUS1  SES eeprom 0xa2
+#define I2C_BUS1               1 //BUS2  PEX0/1 i2c1;DS2482 rack ear temp sensor 0x30;vpd-1 0xac;psu A 0xb0/0xa0;vpd-1 0xa2; 
+#define I2C_BUS2               2 //BUS3  PEX0/1 i2c2;DS2482 rack ear temp sensor 0x30;vpd-2 0xac;psu A 0xb0/0xa0;vpd-2 0xa2;
+#define I2C_BUS3               3 //BUS4  PEX0/1 i2c3;Fan controllerx2 0x40/0x42;Inlet temp 0x90;Outlet temp 0x92;PCIe temp 0x94 0x96 0x98 0x9a; HW monitor 0x5c; VRs nopop
+#define I2C_BUS4               4 //BUS5  CPLD :0X10 part1 0x82; virtual PCA9555 0x50 0x52 0x54
+#define I2C_BUS5               5 //BUS6  PEX0/1 i2c5;PCA 9648/46 0xe0/0xe2 hot swap;PCA 9648/46 0xe4/0xe8 hot swap;
+#define I2C_BUS6               6 //BUS7  PCA9548 0xe2 PCIe slot1234; (it will be connected to bmc i2c8 where enabled by CPLD once BMC Present)
+#define I2C_BUS7               7 //BUS8  PCH smbusM;PCA9551BS 0xce;BBU 0x12/0x16/0x18/0xaa;CLK GEN 0xd0;CLK BUFF 0xd8; BCM57416 0xd4;CPU XDP; PCH eeprom 0xa2;(It will be connected to bmc i2c7 where enabled by CPLD once BMC Present)
+#define I2C_BUS8               8 //BUS9  PCH SMLINK0 IPMB,using secondary ipmb i2c8 0x2c channel 0x0c
+#define I2C_BUS9               9 //BUS10 BMC SES IPMB, using third ipmb i2c9:0x2a channel:0x0a
+#define I2C_BUS10              10//BUS11 BMC eeprom 0xa0;BBU fuel gauge charger vpd nopop
+#define I2C_BUS11              11//BUS12 
+#define I2C_BUS12              12//BUS13
+#define I2C_BUS13              13//BUS14 Peer canister BMC,using primary ipmb i2c13: 0x28/0x26 channel 0x0
+/* VPD slave address, the name should be unified across different products*/
+#define SLA_ADDR_CANISTER_VPD           0xA0
+#define SLA_ADDR_MIDPLANE_VPD           0xB0
+#define SLA_ADDR_PSU0_VPD               0xC0
+#define SLA_ADDR_PSU1_VPD               0xD0
+
+
+
+
+
+
+#define GPIO_A0    0
+#define GPIO_A1    1
+#define GPIO_A2    2
+#define GPIO_A3    3
+#define GPIO_A4    4
+#define GPIO_A5    5
+#define GPIO_A6    6
+#define GPIO_A7    7
+
+#define GPIO_B0    8
+#define GPIO_B1    9
+#define GPIO_B2    10
+#define GPIO_B3    11
+#define GPIO_B4    12
+#define GPIO_B5    13
+#define GPIO_B6    14
+#define GPIO_B7    15
+
+#define GPIO_C0    16
+#define GPIO_C1    17
+#define GPIO_C2    18
+#define GPIO_C3    19
+#define GPIO_C4    20
+#define GPIO_C5    21
+#define GPIO_C6    22
+#define GPIO_C7    23
+
+#define GPIO_D0    24
+#define GPIO_D1    25
+#define GPIO_D2    26
+#define GPIO_D3    27
+#define GPIO_D4    28
+#define GPIO_D5    29
+#define GPIO_D6    30
+#define GPIO_D7    31
+
+#define GPIO_E0    32
+#define GPIO_E1    33
+#define GPIO_E2    34
+#define GPIO_E3    35
+#define GPIO_E4    36
+#define GPIO_E5    37
+#define GPIO_E6    38
+#define GPIO_E7    39
+
+#define GPIO_F0    40
+#define GPIO_F1    41
+#define GPIO_F2    42
+#define GPIO_F3    43
+#define GPIO_F4    44
+#define GPIO_F5    45
+#define GPIO_F6    46
+#define GPIO_F7    47
+
+#define GPIO_G0    48
+#define GPIO_G1    49
+#define GPIO_G2    50
+#define GPIO_G3    51
+#define GPIO_G4    52
+#define GPIO_G5    53
+#define GPIO_G6    54
+#define GPIO_G7    55
+
+#define GPIO_H0    56
+#define GPIO_H1    57
+#define GPIO_H2    58
+#define GPIO_H3    59
+#define GPIO_H4    60
+#define GPIO_H5    61
+#define GPIO_H6    62
+#define GPIO_H7    63
+
+#define GPIO_I0    64
+#define GPIO_I1    65
+#define GPIO_I2    66
+#define GPIO_I3    67
+#define GPIO_I4    68
+#define GPIO_I5    69
+#define GPIO_I6    70
+#define GPIO_I7    71
+
+#define GPIO_J0    72
+#define GPIO_J1    73
+#define GPIO_J2    74
+#define GPIO_J3    75
+#define GPIO_J4    76
+#define GPIO_J5    77
+#define GPIO_J6    78
+#define GPIO_J7    79
+
+#define GPIO_K0    80
+#define GPIO_K1    81
+#define GPIO_K2    82
+#define GPIO_K3    83
+#define GPIO_K4    84
+#define GPIO_K5    85
+#define GPIO_K6    86
+#define GPIO_K7    87
+
+#define GPIO_L0    88
+#define GPIO_L1    89
+#define GPIO_L2    90
+#define GPIO_L3    91
+#define GPIO_L4    92
+#define GPIO_L5    93
+#define GPIO_L6    94
+#define GPIO_L7    95
+
+#define GPIO_M0    96
+#define GPIO_M1    97
+#define GPIO_M2    98
+#define GPIO_M3    99
+#define GPIO_M4    100
+#define GPIO_M5    101
+#define GPIO_M6    102
+#define GPIO_M7    103
+
+#define GPIO_N0    104
+#define GPIO_N1    105
+#define GPIO_N2    106
+#define GPIO_N3    107
+#define GPIO_N4    108
+#define GPIO_N5    109
+#define GPIO_N6    110
+#define GPIO_N7    111
+
+#define GPIO_O0    112
+#define GPIO_O1    113
+#define GPIO_O2    114
+#define GPIO_O3    115
+#define GPIO_O4    116
+#define GPIO_O5    117
+#define GPIO_O6    118
+#define GPIO_O7    119
+
+#define GPIO_P0    120
+#define GPIO_P1    121
+#define GPIO_P2    122
+#define GPIO_P3    123
+#define GPIO_P4    124
+#define GPIO_P5    125
+#define GPIO_P6    126
+#define GPIO_P7    127
+
+#define GPIO_Q0    128
+#define GPIO_Q1    129
+#define GPIO_Q2    130
+#define GPIO_Q3    131
+#define GPIO_Q4    132
+#define GPIO_Q5    133
+#define GPIO_Q6    134
+#define GPIO_Q7    135
+
+#define GPIO_R0    136
+#define GPIO_R1    137
+#define GPIO_R2    138
+#define GPIO_R3    139
+#define GPIO_R4    140
+#define GPIO_R5    141
+#define GPIO_R6    142
+#define GPIO_R7    143
+
+#define GPIO_S0    144
+#define GPIO_S1    145
+#define GPIO_S2    146
+#define GPIO_S3    147
+#define GPIO_S4    148
+#define GPIO_S5    149
+#define GPIO_S6    150
+#define GPIO_S7    151
+
+#define GPIO_T0    152
+#define GPIO_T1    153
+#define GPIO_T2    154
+#define GPIO_T3    155
+#define GPIO_T4    156
+#define GPIO_T5    157
+#define GPIO_T6    158
+#define GPIO_T7    159
+
+#define GPIO_U0    160
+#define GPIO_U1    161
+#define GPIO_U2    162
+#define GPIO_U3    163
+#define GPIO_U4    164
+#define GPIO_U5    165
+#define GPIO_U6    166
+#define GPIO_U7    167
+
+#define GPIO_V0    168
+#define GPIO_V1    169
+#define GPIO_V2    170
+#define GPIO_V3    171
+#define GPIO_V4    172
+#define GPIO_V5    173
+#define GPIO_V6    174
+#define GPIO_V7    175
+
+#define GPIO_W0    176
+#define GPIO_W1    177
+#define GPIO_W2    178
+#define GPIO_W3    179
+#define GPIO_W4    180
+#define GPIO_W5    181
+#define GPIO_W6    182
+#define GPIO_W7    183
+
+#define GPIO_X0    184
+#define GPIO_X1    185
+#define GPIO_X2    186
+#define GPIO_X3    187
+#define GPIO_X4    188
+#define GPIO_X5    189
+#define GPIO_X6    190
+#define GPIO_X7    191
+
+#define GPIO_Y0    192
+#define GPIO_Y1    193
+#define GPIO_Y2    194
+#define GPIO_Y3    195
+#define GPIO_Y4    196
+#define GPIO_Y5    197
+#define GPIO_Y6    198
+#define GPIO_Y7    199
+
+#define GPIO_Z0    200
+#define GPIO_Z1    201
+#define GPIO_Z2    202
+#define GPIO_Z3    203
+#define GPIO_Z4    204
+#define GPIO_Z5    205
+#define GPIO_Z6    206
+#define GPIO_Z7    207
+
+#define GPIO_AA0   208 
+#define GPIO_AA1   209 
+#define GPIO_AA2   210 
+#define GPIO_AA3   211 
+#define GPIO_AA4   212 
+#define GPIO_AA5   213 
+#define GPIO_AA6   214 
+#define GPIO_AA7   215 
+
+#define GPIO_AB0   216 
+#define GPIO_AB1   217 
+#define GPIO_AB2   218 
+#define GPIO_AB3   219 
+#define GPIO_AB4   220 
+#define GPIO_AB5   221 
+#define GPIO_AB6   222 
+#define GPIO_AB7   223 
+
+#define GPIO_AC0   224 
+#define GPIO_AC1   225 
+#define GPIO_AC2   226 
+#define GPIO_AC3   227 
+#define GPIO_AC4   228 
+#define GPIO_AC5   229 
+#define GPIO_AC6   230 
+#define GPIO_AC7   231
+
+#define GPIO_AD0   232 
+#define GPIO_AD1   233 
+#define GPIO_AD2   234 
+#define GPIO_AD3   235 
+#define GPIO_AD4   236 
+#define GPIO_AD5   237 
+#define GPIO_AD6   238 
+#define GPIO_AD7   239
+
+#define GPIO_AE0   240 
+#define GPIO_AE1   241 
+#define GPIO_AE2   242 
+#define GPIO_AE3   243 
+#define GPIO_AE4   244 
+#define GPIO_AE5   245 
+#define GPIO_AE6   246 
+#define GPIO_AE7   247
+
+#define GPIO_AF0   248 
+#define GPIO_AF1   249 
+#define GPIO_AF2   250 
+#define GPIO_AF3   251 
+#define GPIO_AF4   252 
+#define GPIO_AF5   253 
+#define GPIO_AF6   254 
+#define GPIO_AF7   255
+
+//SGPIO
+#define SGPIO_A0   256
+#define SGPIO_A1   257
+#define SGPIO_A2   258
+#define SGPIO_A3   259
+#define SGPIO_A4   260
+#define SGPIO_A5   261
+#define SGPIO_A6   262
+#define SGPIO_A7   263
+
+#define SGPIO_B0   264
+#define SGPIO_B1   265
+#define SGPIO_B2   266
+#define SGPIO_B3   267
+#define SGPIO_B4   268
+#define SGPIO_B5   269
+#define SGPIO_B6   270
+#define SGPIO_B7   271
+
+#define SGPIO_C0   272
+#define SGPIO_C1   273
+#define SGPIO_C2   274
+#define SGPIO_C3   275
+#define SGPIO_C4   276
+#define SGPIO_C5   277
+#define SGPIO_C6   278
+#define SGPIO_C7   279
+
+#define SGPIO_D0   280
+#define SGPIO_D1   281
+#define SGPIO_D2   282
+#define SGPIO_D3   283
+#define SGPIO_D4   284
+#define SGPIO_D5   285
+#define SGPIO_D6   286
+#define SGPIO_D7   287
+
+#define SGPIO_E0   288
+#define SGPIO_E1   289
+#define SGPIO_E2   290
+#define SGPIO_E3   291
+#define SGPIO_E4   292
+#define SGPIO_E5   293
+#define SGPIO_E6   294
+#define SGPIO_E7   295
+
+#define SGPIO_F0   296
+#define SGPIO_F1   297
+#define SGPIO_F2   298
+#define SGPIO_F3   299
+#define SGPIO_F4   300
+#define SGPIO_F5   301
+#define SGPIO_F6   302
+#define SGPIO_F7   303
+
+#define SGPIO_G0   304
+#define SGPIO_G1   305
+#define SGPIO_G2   306
+#define SGPIO_G3   307
+#define SGPIO_G4   308
+#define SGPIO_G5   309
+#define SGPIO_G6   310
+#define SGPIO_G7   311
+
+#define SGPIO_H0   312
+#define SGPIO_H1   313
+#define SGPIO_H2   314
+#define SGPIO_H3   315
+#define SGPIO_H4   316
+#define SGPIO_H5   317
+#define SGPIO_H6   318
+#define SGPIO_H7   319
+
+#define SGPIO_I0   320
+#define SGPIO_I1   321
+#define SGPIO_I2   322
+#define SGPIO_I3   323
+#define SGPIO_I4   324
+#define SGPIO_I5   325
+#define SGPIO_I6   326
+#define SGPIO_I7   327
+
+#define SGPIO_J0   328
+#define SGPIO_J1   329
+#define SGPIO_J2   330
+#define SGPIO_J3   331
+#define SGPIO_J4   332
+#define SGPIO_J5   333
+#define SGPIO_J6   334
+#define SGPIO_J7   335

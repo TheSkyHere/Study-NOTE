@@ -76,4 +76,19 @@ http://10.99.100.103/baidu/kvm
 
 
 
+//共享了文件/home2/必须使用home2下的文件
+Celestica :使用步骤
+setenv ethaddr 16:5E:0F:3E:EE:2a
+setenv eth1addr 16:5D:0F:4E:ED:2b
+
+setenv ethact ethernet@1e660000
+
+setenv serverip 10.204.112.39
+setenv ipaddr 10.204.112.176
+setenv bootargs root=/dev/nfs nfsroot=10.204.112.39:/home2/morton/NTFS_UImage/ImageTree nfsvers=3 rw ip=dhcp console=ttyS4,115200 mem=440M
+saveenv
+dhcp
+tftp 0x83000000 morton_G2_uImage
+tftp 0x85000000 morton_G2_kernel.dtb
+bootm 0x83000000 - 0x85000000
 
